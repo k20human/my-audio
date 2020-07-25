@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 from bundles.actions.Volume import Volume
+import threading
 
 
 class Configurator:
@@ -27,8 +28,10 @@ class Application:
         self._volume = Volume(self.logger)
 
     def _init_logs(self):
+        log_level = getattr(logging, os.getenv('LOG_LEVEL').upper(), None)
+
         logger = logging.getLogger()
-        logger.setLevel(logging.INFO)
+        logger.setLevel(log_level)
         formatter = logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
 
         file_handler = RotatingFileHandler(os.getenv('LOG_PATH'), 'a', 1000000, 1)
@@ -37,7 +40,7 @@ class Application:
         logger.addHandler(file_handler)
 
         steam_handler = logging.StreamHandler()
-        steam_handler.setLevel(logging.INFO)
+        steam_handler.setLevel(log_level)
         steam_handler.setFormatter(formatter)
         logger.addHandler(steam_handler)
 
@@ -45,7 +48,10 @@ class Application:
 
     def start(self):
         self.logger.info('Start actions Volume management')
-        self._volume.start()
+
+        thread = threading.Thread(target=self._volume.start)
+        thread.start()
+
 
 
 def main():
