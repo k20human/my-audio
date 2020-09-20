@@ -5,12 +5,12 @@ from logging.handlers import RotatingFileHandler
 from dotenv import load_dotenv
 import os
 from pathlib import Path
-from bundles.actions.Volume import Volume
-from bundles.actions.Led import Led
-from bundles.actions.OnOff import OnOff
-from bundles.actions.Choices import Choices
-from bundles.actions.Lights import Lights
-from bundles.actions.Sound import Sound
+from bundles.actions.volume import Volume
+from bundles.actions.led import Led
+from bundles.actions.onOff import OnOff
+from bundles.actions.choices import Choices
+from bundles.actions.lights import Lights
+from bundles.actions.sound import Sound
 import threading
 
 
@@ -35,8 +35,7 @@ class Application:
             # "LED": Led(self.logger),
             # "On / Off": OnOff(self.logger),
             # "Choices": Choices(self.logger),
-            "Lights": Lights(self.logger),
-            "Sound": Sound(self.logger),
+            "Lights": Lights(self.logger)
         }
 
     def _init_logs(self):

@@ -15,18 +15,11 @@ class Lights:
         self._logger = logger
         self._device = max7219(serial, width=32, height=8, block_orientation=-90)
 
+        self._logger.info("Lights connected")
+
     def display(self, text):
         self._logger.debug("Display text: " + text)
 
-        start = time.time()
-        time.clock()
-        elapsed = 0
+        with canvas(self._device) as draw:
+            show_message(self._device, text, fill="white", font=proportional(LCD_FONT), scroll_delay=0.5)
 
-        while elapsed < 1:
-            elapsed = time.time() - start
-            with canvas(self._device) as draw:
-                show_message(self._device, text, fill="white", font=proportional(LCD_FONT), scroll_delay=0.5)
-            time.sleep(0.1)
-
-    def start(self):
-        self._logger.info("Lights connected")

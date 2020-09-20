@@ -1,0 +1,13 @@
+stories:
+  - name: Test
+    file: story1.txt
+    keys:
+      - Hero 1
+      - Lieu 1
+      - Objet 1
+  - name: Coucou
+    file: story2.txt
+    keys:
+      - Hero 2
+      - Lieu 2
+      - Objet 2

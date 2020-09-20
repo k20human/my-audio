@@ -7,6 +7,7 @@ import os
 class Sound:
     def __init__(self, logger):
         self._logger = logger
+        self._logger.info("Sound connected")
 
     def play(self, message):
         self._logger.debug("Play message: " + message)
@@ -23,5 +24,3 @@ class Sound:
         except UnicodeDecodeError:
             self._logger.debug("Some characters are not supported")
 
-    def start(self):
-        self._logger.info("Sound connected")
