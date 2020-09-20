@@ -6,6 +6,11 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 from bundles.actions.Volume import Volume
+from bundles.actions.Led import Led
+from bundles.actions.OnOff import OnOff
+from bundles.actions.Choices import Choices
+from bundles.actions.Lights import Lights
+from bundles.actions.Sound import Sound
 import threading
 
 
@@ -25,7 +30,14 @@ class Application:
         Configurator()
 
         self.logger = self._init_logs()
-        self._volume = Volume(self.logger)
+        self._actions = {
+            # "Volume": Volume(self.logger),
+            # "LED": Led(self.logger),
+            # "On / Off": OnOff(self.logger),
+            # "Choices": Choices(self.logger),
+            "Lights": Lights(self.logger),
+            "Sound": Sound(self.logger),
+        }
 
     def _init_logs(self):
         log_level = getattr(logging, os.getenv('LOG_LEVEL').upper(), None)
@@ -47,11 +59,13 @@ class Application:
         return logger
 
     def start(self):
-        self.logger.info('Start actions Volume management')
+        for key, value in self._actions.items():
+            self.logger.info('Start actions ' + key + ' management')
 
-        thread = threading.Thread(target=self._volume.start)
-        thread.start()
-
+            # thread = threading.Thread(target=value.start)
+            # thread.start()
+        lights = self._actions.get('Lights')
+        lights.display('Test')
 
 
 def main():

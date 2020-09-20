@@ -2,6 +2,7 @@ from gpiozero import MCP3008
 import time
 import alsaaudio
 
+
 # TODO add custom config for volume manager
 class Volume:
     def __init__(self, logger):
