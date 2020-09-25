@@ -24,7 +24,7 @@ class Story:
 
         for story in self._stories['stories']:
             keys = story['keys']
-            if keys['hero'] == selects[0] and keys['place'] == selects[1] and keys['object'] == selects[2]:
+            if keys['hero'] == self._heroes[selects[0]] and keys['place'] == self._places[selects[1]] and keys['object'] == self._objects[selects[2]]:
                 file = open(self._get_path() + '/stories/' + story['file'], 'r')
                 self._sound.play(file.read())
                 not_found = False

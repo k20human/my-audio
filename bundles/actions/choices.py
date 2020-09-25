@@ -13,7 +13,7 @@ class Choices:
         self._sound = Sound(logger)
         self._lights = Lights(logger)
 
-        self._select_choice = Button(pin=14, bounce_time=1)
+        self._select_choice = Button(pin=14, bounce_time=0.005)
 
         self._choice_pin_a = Button(5, pull_up=True)
         self._choice_pin_b = Button(6, pull_up=True)
