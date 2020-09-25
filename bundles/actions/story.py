@@ -10,7 +10,7 @@ class Story:
 
         self._heroes = ['Hero 1']
         self._places = ['Lieu 1']
-        self._objects = ['Object 1']
+        self._objects = ['Objet 1']
         self.selects = [self._heroes, self._places, self._objects]
 
         with open(self._get_path() + '/stories/index.yaml') as file:
