@@ -4,6 +4,7 @@ from .story import Story
 from .sound import Sound
 from .lights import Lights
 
+
 # TODO add customs GPIO
 class Choices:
     def __init__(self, logger):
@@ -27,10 +28,16 @@ class Choices:
         new_increment = self._selects[self._current_selector] + increment
         choices = self._story.selects[self._current_selector]
 
-        if new_increment == len(choices):
+        print(new_increment)
+        print(choices)
+
+        if new_increment >= len(choices):
             new_increment = 0
-        elif new_increment == -1:
+        elif new_increment <= -1:
             new_increment = len(choices) - 1
+
+        print(new_increment)
+        print(self._story.selects)
 
         self._selects[self._current_selector] = new_increment
 

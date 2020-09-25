@@ -1,4 +1,3 @@
-from signal import pause
 from gtts import gTTS
 import os
 
@@ -7,7 +6,7 @@ import os
 class Sound:
     def __init__(self, logger):
         self._logger = logger
-        self._logger.info("Sound connected")
+        self._logger.info("Sound started")
 
     def play(self, message):
         self._logger.debug("Play message: " + message)
