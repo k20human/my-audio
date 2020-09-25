@@ -2,12 +2,12 @@ stories:
   - name: Test
     file: story1.txt
     keys:
-      - Hero 1
-      - Lieu 1
-      - Objet 1
+      hero: Hero 1
+      place: Lieu 1
+      object: Objet 1
   - name: Coucou
     file: story2.txt
     keys:
-      - Hero 2
-      - Lieu 2
-      - Objet 2
+      hero: Hero 2
+      place: Lieu 2
+      object: Objet 2

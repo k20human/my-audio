@@ -13,6 +13,7 @@ from bundles.actions.lights import Lights
 from bundles.actions.sound import Sound
 import threading
 
+from bundles.actions.story import Story
 
 class Configurator:
     def __init__(self):
@@ -35,7 +36,7 @@ class Application:
             # "LED": Led(self.logger),
             # "On / Off": OnOff(self.logger),
             # "Choices": Choices(self.logger),
-            "Lights": Lights(self.logger)
+            #"Lights": Lights(self.logger)
         }
 
     def _init_logs(self):
@@ -63,8 +64,8 @@ class Application:
 
             # thread = threading.Thread(target=value.start)
             # thread.start()
-        lights = self._actions.get('Lights')
-        lights.display('Test')
+        story = Story(self.logger)
+        story.play(['Hero 1', 'Lieu 1', 'Objet 1'])
 
 
 def main():
