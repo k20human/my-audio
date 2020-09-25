@@ -53,6 +53,12 @@ class Choices:
         if self._current_selector == len(self._selects):
             self._story.play(self._selects)
             self._init()
+        else:
+            # TODO choose with array
+            if self._current_selector == 1:
+                self._sound.play("Maintenant, choisi ton lieu")
+            elif self._current_selector == 2:
+                self._sound.play("Pour finir, choisi ton objet")
 
 
     def _choice(self):
@@ -65,6 +71,8 @@ class Choices:
 
     def start(self):
         self._logger.info("Choices connected")
+
+        self._sound.play("Bonjour, choisi ton héro")
 
         self._select_choice.when_released = self._select
         self._choice_pin_a.when_pressed = self._choice
