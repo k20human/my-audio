@@ -60,7 +60,6 @@ class Choices:
             elif self._current_selector == 2:
                 self._sound.play("Pour finir, choisi ton objet")
 
-
     def _choice(self):
         if self._choice_pin_a.is_pressed:
             self._logger.info("1")

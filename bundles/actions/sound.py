@@ -17,8 +17,7 @@ class Sound:
             testfile = "/tmp/temp.mp3"
             tts.save(testfile)
 
-            os.system("mpg123 /tmp/temp.mp3")
-            os.system("clear")
+            os.system("mpg123 /tmp/temp.mp3 > /dev/null")
             os.system("rm %s" % testfile)
         except UnicodeDecodeError:
             self._logger.debug("Some characters are not supported")
