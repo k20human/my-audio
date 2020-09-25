@@ -22,4 +22,3 @@ class Lights:
 
         with canvas(self._device) as draw:
             show_message(self._device, text, fill="white", font=proportional(LCD_FONT), scroll_delay=0.5)
-

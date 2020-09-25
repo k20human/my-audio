@@ -9,7 +9,6 @@ from bundles.actions.volume import Volume
 from bundles.actions.led import Led
 from bundles.actions.onOff import OnOff
 from bundles.actions.choices import Choices
-from bundles.actions.lights import Lights
 import threading
 
 
@@ -33,8 +32,7 @@ class Application:
             "Volume": Volume(self.logger),
             "LED": Led(self.logger),
             "On / Off": OnOff(self.logger),
-            "Choices": Choices(self.logger),
-            "Lights": Lights(self.logger)
+            "Choices": Choices(self.logger)
         }
 
     def _init_logs(self):
